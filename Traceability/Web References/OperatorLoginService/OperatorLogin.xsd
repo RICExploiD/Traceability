@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://brnet/WebServices/OperatorLogin.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OperatorLoginWebS" />
+  <xs:element name="StartSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Line" type="xs:int" />
+        <xs:element minOccurs="0" name="StationNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="OperatorBR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StartSessionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartSessionWeldings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Line" type="xs:int" />
+        <xs:element minOccurs="0" name="StationNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="OperatorBR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="WeldingPoints" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartSessionWeldingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StartSessionWeldingsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Line" type="xs:int" />
+        <xs:element minOccurs="0" name="StationNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CloseSessionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStationStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Line" type="xs:int" />
+        <xs:element minOccurs="0" name="StationNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStationStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/OperatorLoginWebS" minOccurs="0" name="GetStationStatusResult" nillable="true" type="q1:StationInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OperatorBR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/OperatorLoginWebS" minOccurs="0" name="GetUserStatusResult" nillable="true" type="q2:StationInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="line" type="xs:int" />
+        <xs:element minOccurs="0" name="station" type="xs:int" />
+        <xs:element minOccurs="0" name="operatorBR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="HasAccessResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

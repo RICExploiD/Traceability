@@ -1,0 +1,348 @@
+﻿<Window x:Class="Traceability.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Traceability"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="900" 
+        Width="1600" 
+        MinHeight="630" 
+        MinWidth="1100" 
+        Loaded="Window_Loaded" 
+        Closed="Window_Closed">
+    <Window.Resources>
+        <Style x:Key="StatusBarLabels" TargetType="Label">
+            <Setter Property="Label.FontSize" Value="10"/>
+        </Style>
+        <Style x:Key="HeaderLabels" TargetType="Label">
+            <Setter Property="Label.FontSize" Value="30"/>
+        </Style>
+        <Style x:Key="IOTTypeAndTimeLabels" TargetType="Label">
+            <Setter Property="Label.FontSize" Value="45"/>
+            <Setter Property="Label.HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="DebugLabels" TargetType="Label">
+            <Setter Property="Label.Background" Value="Gray"/>
+            <Setter Property="Label.Margin" Value="1"/>
+            <Setter Property="Label.BorderThickness" Value="1"/>
+            <Setter Property="Label.BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="DebugTextLabels" TargetType="TextBlock">
+            <Setter Property="TextBlock.Foreground" Value="White"/>
+            <Setter Property="TextBlock.Background" Value="Transparent"/>
+            <Setter Property="TextBlock.Margin" Value="1"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Stretch"/>
+        </Style>
+        <Style x:Key="WorkLabels" TargetType="Label" >
+            <Setter Property="Label.HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Label.Background" Value="DodgerBlue" />
+            <Setter Property="Label.HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Label.Margin" Value="1" />
+            <Setter Property="Label.BorderBrush" Value="Black" />
+            <Setter Property="Label.BorderThickness" Value="1" />
+        </Style>
+        <Style x:Key="WorkTextLabels" TargetType="TextBox" >
+            <Setter Property="TextBox.BorderThickness" Value="0"/>
+            <Setter Property="TextBox.FontSize" Value="40"/>
+            <Setter Property="TextBox.HorizontalContentAlignment" Value="Center" />
+            <Setter Property="TextBox.Foreground" Value="White" />
+            <Setter Property="TextBox.Background" Value="Transparent" />
+            <Setter Property="TextBox.HorizontalAlignment" Value="Stretch" />
+            <Setter Property="TextBox.Margin" Value="1" />
+            <Setter Property="TextBox.IsReadOnly" Value="True"/>
+        </Style>
+        <Style x:Key="WorkTopicLabels" TargetType="Label" >
+            <Setter Property="Label.FontSize" Value="14" />
+            <Setter Property="Label.HorizontalAlignment" Value="Left" />
+            <Setter Property="Label.Foreground" Value="LightGoldenrodYellow" />
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="gMainWindowGrid">
+        <Grid x:Name="gWorkSiteGrid">
+            <Grid x:Name="gHeaderGrid"
+                  Grid.ColumnSpan="2"
+                  >
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="gOperatorLabel"
+                           HorizontalAlignment="Left"
+                           Style="{StaticResource HeaderLabels}"
+                           />
+
+                    <Label x:Name="gStationNameLabel"
+                               Margin="25,0,0,0"
+                               Content="PointName 000"
+                               HorizontalAlignment="Center"
+                               Style="{StaticResource HeaderLabels}"
+                           />
+                </StackPanel>
+                <Image x:Name="gSettingsButtonImage"
+                       Source="/Images/GearSettingsIcon.png"
+                       HorizontalAlignment="Right"
+                       MouseLeftButtonUp="gSettingsButtonImage_MouseLeftButtonUp" 
+                       MouseEnter="gSettingsButtonImage_MouseEnter" 
+                       MouseLeave="gSettingsButtonImage_MouseLeave"/>
+            </Grid>
+            <Grid x:Name="gProductBarcodeGrid"
+                  Grid.Row="1"
+                  >
+                <Label Grid.ColumnSpan="2" Style="{StaticResource WorkLabels}" />
+                <Label Content="Код продукта:"
+                           Style="{StaticResource WorkTopicLabels}"
+                           />
+                <Viewbox>
+                    <Grid>
+                        <Grid Grid.Column="0"
+                                     HorizontalAlignment="Center">
+                            <TextBox x:Name="gProductBarcodeLabel" 
+                                     Style="{StaticResource WorkTextLabels}"
+                                     Grid.Column="1"
+                                     />
+                        </Grid>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+            <Grid x:Name="gProductModelBrandGrid"
+                  Grid.Row="2"
+                  Grid.ColumnSpan="1"
+                  >
+                <Label Style="{StaticResource WorkLabels}"/>
+                <Label Content="Модель продукта:"
+                    Style="{StaticResource WorkTopicLabels}"
+                    />
+                <Viewbox>
+                    <TextBox x:Name="gProductModelBrandLabel"
+                         Style="{StaticResource WorkTextLabels}"
+                         />
+                </Viewbox>
+            </Grid>
+            <Grid x:Name="gWMDetialsGrid"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  Grid.RowSpan="2"
+                  >
+                <Border BorderBrush="Black" 
+                        BorderThickness="1"
+                        Margin="1"
+                        Background="DodgerBlue"
+                        >
+                    <Grid Background="DodgerBlue">
+                        <Label Content="Детали:"
+                               Style="{StaticResource WorkTopicLabels}"
+                               />
+                        <Viewbox>
+                            <TextBox x:Name="gProductNoLabel"
+                                 Grid.Row="0"
+                                     Style="{StaticResource WorkTextLabels}"
+                                 >
+                            </TextBox>
+                        </Viewbox>
+                        <Viewbox Grid.Row="1">
+                            <TextBox x:Name="gRDummyLabel"
+                                 BorderThickness="0"
+                                     Style="{StaticResource WorkTextLabels}"
+                                 />
+                        </Viewbox>
+                        <Viewbox Grid.Row="2">
+                            <TextBox x:Name="gLDummyLabel"
+                                     Style="{StaticResource WorkTextLabels}"
+                                 />
+                        </Viewbox>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Frame x:Name="gTraceabilityComponentFrame"
+                   Grid.Row="3"
+                   Grid.ColumnSpan="2"
+                   NavigationUIVisibility="Hidden"
+                   />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width=".25*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <GridSplitter x:Name="gGridSplitter"
+                      Grid.Column="1" 
+                      ShowsPreview="False" 
+                      Width="3"
+                      HorizontalAlignment="Center" 
+                      VerticalAlignment="Stretch" 
+                      />
+        <Grid x:Name="gOptionalDebugGrid"
+              Grid.Column="2"
+              >
+            <Grid x:Name="gLogGrid"
+                  Grid.Row="0"
+                  >
+                <ScrollViewer x:Name="gLogScrollViewer"
+                          HorizontalAlignment="Stretch" 
+                          VerticalAlignment="Stretch"
+                          >
+                    <TextBox x:Name="gLogTextBox" 
+                             Text="-=-= Log text =-=-" 
+                             IsReadOnly="True"
+                             TextWrapping="Wrap"
+                         />
+                </ScrollViewer>
+            </Grid>
+            <Grid x:Name="gOPCInputsGrid"
+                  Grid.Row="1"
+                  >
+                <Label x:Name="gCanGoPermitLabel"
+                       Grid.Row="0"
+                       Style="{StaticResource DebugLabels}"
+                       />
+                <Viewbox Grid.Row="0">
+                    <TextBlock
+                       Text="Может ехать"
+                       Style="{StaticResource DebugTextLabels}"
+                       />
+                </Viewbox>
+                
+                <Label x:Name="gIsHereLabel"
+                       Grid.Row="1"
+                       Style="{StaticResource DebugLabels}"
+                       />
+                <Viewbox Grid.Row="1">
+                    <TextBlock
+                       Text="Паллет приехал/уехал"
+                       Style="{StaticResource DebugTextLabels}"
+                       />
+                </Viewbox>
+                
+                <Label x:Name="gSendButtonLabel"
+                       Grid.Row="2"
+                       Style="{StaticResource DebugLabels}"
+                       />
+                <Viewbox Grid.Row="2">
+                    <TextBlock
+                       Text="Кнопка отправики"
+                       Style="{StaticResource DebugTextLabels}"
+                       />
+                </Viewbox>
+                
+                <Label
+                    Grid.Row="3"
+                    Style="{StaticResource DebugLabels}"
+                    />
+                <Viewbox x:Name="gProductRowBarcodeViewBox"
+                         Grid.Row="3" >
+                    <TextBlock x:Name="gProductRowBarcodeLabel"
+                             Text="Скан продукта"
+                             Style="{StaticResource DebugTextLabels}"
+                             MouseLeftButtonDown="gProductRowBarcodeViewBox_MouseLeftButtonDown"
+                       />
+                </Viewbox>
+                <Label x:Name="gProductRowBarcodeCopiedLabel"
+                       Grid.Row="3" 
+                       Content="Скопировано ✔"
+                       Visibility="Collapsed"/>
+
+                <Label
+                    Grid.Row="4"
+                    Style="{StaticResource DebugLabels}"
+                    />
+                <Viewbox x:Name="gComponentRowBarcodeViewBox"
+                         Grid.Row="4" 
+                         >
+                    <TextBlock
+                        x:Name="gComponentRowBarcodeLabel"
+                        Text="Скан компонента"
+                        Style="{StaticResource DebugTextLabels}" 
+                        MouseLeftButtonDown="gComponentRowBarcodeViewBox_MouseLeftButtonDown"
+                    />
+                </Viewbox>
+                <Label x:Name="gComponentRowBarcodeCopiedLabel"
+                       Grid.Row="4" 
+                       Content="Скопировано ✔"
+                       Visibility="Collapsed"/>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+            
+            <Viewbox Grid.Row="2">
+                <Grid x:Name="gIOTTypeAndTimeGrid">
+                    <Label x:Name="gIOTTypeLabel" 
+                       Content="WiFi+BLE"
+                       Grid.Column="0"
+                       Style="{StaticResource IOTTypeAndTimeLabels}"
+                       />
+                    <Label x:Name="gCurrentTime"
+                       Content="13:30:14"
+                       Grid.Column="1"
+                       Style="{StaticResource IOTTypeAndTimeLabels}"
+                       />
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </Viewbox>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" x:Name="LogsRowDefinition"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+        </Grid>
+
+        <StatusBar x:Name="gConnectionStatusesStatusBar"
+                   Grid.Row="1"
+                   Grid.RowSpan="3"
+                   Grid.ColumnSpan="3" 
+                   >
+            <Label x:Name="gSQLConnectionStatusLabel"
+                    Content="SQL" Foreground="Red" Style="{StaticResource StatusBarLabels}"/>
+            <Separator/>
+            <Label x:Name="gOPCConnectionStatusLabel"
+                   Content="OPC" 
+                   Foreground="Red" 
+                   Style="{StaticResource StatusBarLabels}"/>
+            <Separator/>
+            <Label x:Name="gProductScannerConnectionStatusLabel"
+                   Content="ProductScanner"
+                   Foreground="Red"
+                   Style="{StaticResource StatusBarLabels}"/>
+            <Separator/>
+            <Label x:Name="gComponentScannerConnectionStatusLabel" 
+                   Content="ComponentScanner"
+                   Foreground="Red"
+                   Style="{StaticResource StatusBarLabels}"/>
+            <Separator/>
+            <Label x:Name="gExecutionTimeLabel"
+                   Content="0ms"
+                   Style="{StaticResource StatusBarLabels}"
+                   />
+        </StatusBar>
+        
+        <Grid.ColumnDefinitions>
+            <!--<ColumnDefinition Width="2.2*"/>-->
+            <ColumnDefinition MinWidth="630"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition MinWidth="330" Width=".35*" x:Name="OptionalDebugColumnDefinition"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+    </Grid>
+</Window>

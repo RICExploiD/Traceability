@@ -1,0 +1,87 @@
+﻿<Page x:Class="Traceability.MTKWorkPage.MTKWorkPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Traceability.Services"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FreezerFan" Loaded="Page_Loaded">
+    <Grid>
+        <Grid Grid.Row="0">
+            <Label Style="{StaticResource WorkLabels}"/>
+            <Viewbox>
+                <TextBox x:Name="gProductAwaitedMaterials"
+                    Style="{StaticResource WorkTextBoxLabels}"
+                   />
+            </Viewbox>
+            <Label Content="Ожидаемый материал(ы): "
+                   Style="{StaticResource WorkTopicLabels}"
+                   />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Label
+                   Style="{StaticResource WorkLabels}"/>
+            <Viewbox>
+                <TextBlock x:Name="gMTKDataLabel" Style="{StaticResource WorkTextLabels}">
+                    <Run x:Name="gMTKDataLabel1"/>
+                    <Run x:Name="gMTKDataLabel2"/>
+                </TextBlock>
+            </Viewbox>
+            <Label Content="Данные по МТК: "
+                   Style="{StaticResource WorkTopicLabels}"
+                   />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid Grid.Column="0">
+                <Label
+                   Style="{StaticResource WorkLabels}"/>
+                <Viewbox>
+                    <TextBlock x:Name="gComponentsLeftTextBlock"
+                        Style="{StaticResource WorkTextLabels}"
+                   />
+                </Viewbox>
+                <Label Content="Осталось: "
+                       Style="{StaticResource WorkTopicLabels}"
+                       />
+            </Grid>
+            <Grid Grid.Column="1">
+                <Label
+                   Style="{StaticResource WorkLabels}"/>
+                <Viewbox>
+                    <TextBlock x:Name="gComponentsSavedTextBlock"
+                        Style="{StaticResource WorkTextLabels}"
+                   />
+                </Viewbox>
+                <Label Content="Сохранено: "
+                       Style="{StaticResource WorkTopicLabels}"
+                       />
+            </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Label x:Name="gOperatorNotifyBackgroundLabel"
+                   Style="{StaticResource OperatorAttentionLabel}"/>
+            <Viewbox>
+                <Label x:Name="gOperatorNotifyTextLabel"
+                       Content="Ожидайте сканирования"
+                       Style="{StaticResource OperatorWhiteTextLabel}"
+                       />
+            </Viewbox>
+            <TextBlock x:Name="gQueueCounterTextBlock"
+                       Margin="0,0,5,0"
+                       Text="queue count: 0" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Top"/>
+        </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+    </Grid>
+</Page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://brnet/WebServices/OperatorLogin.svc?disco" filename="OperatorLogin.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://brnet/WebServices/OperatorLogin.svc?wsdl" filename="OperatorLogin.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://brnet/WebServices/OperatorLogin.svc?xsd=xsd0" filename="OperatorLogin.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://brnet/WebServices/OperatorLogin.svc?xsd=xsd1" filename="OperatorLogin0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://brnet/WebServices/OperatorLogin.svc?xsd=xsd2" filename="OperatorLogin1.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

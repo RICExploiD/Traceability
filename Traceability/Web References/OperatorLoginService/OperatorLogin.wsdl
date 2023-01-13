@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="OperatorLogin" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IOperatorLogin_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://brnet/WebServices/OperatorLogin.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://brnet/WebServices/OperatorLogin.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://brnet/WebServices/OperatorLogin.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OperatorLoginWebS" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOperatorLogin_StartSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartSession" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_StartSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_StartSessionWeldings_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartSessionWeldings" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_StartSessionWeldings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartSessionWeldingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_CloseSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseSession" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_CloseSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_GetStationStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationStatus" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_GetStationStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_GetUserStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserStatus" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_GetUserStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_HasAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasAccess" />
+  </wsdl:message>
+  <wsdl:message name="IOperatorLogin_HasAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasAccessResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IOperatorLogin">
+    <wsdl:operation name="StartSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperatorLogin/StartSession" message="tns:IOperatorLogin_StartSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperatorLogin/StartSessionResponse" message="tns:IOperatorLogin_StartSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartSessionWeldings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperatorLogin/StartSessionWeldings" message="tns:IOperatorLogin_StartSessionWeldings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperatorLogin/StartSessionWeldingsResponse" message="tns:IOperatorLogin_StartSessionWeldings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperatorLogin/CloseSession" message="tns:IOperatorLogin_CloseSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperatorLogin/CloseSessionResponse" message="tns:IOperatorLogin_CloseSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStationStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperatorLogin/GetStationStatus" message="tns:IOperatorLogin_GetStationStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperatorLogin/GetStationStatusResponse" message="tns:IOperatorLogin_GetStationStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperatorLogin/GetUserStatus" message="tns:IOperatorLogin_GetUserStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperatorLogin/GetUserStatusResponse" message="tns:IOperatorLogin_GetUserStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperatorLogin/HasAccess" message="tns:IOperatorLogin_HasAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperatorLogin/HasAccessResponse" message="tns:IOperatorLogin_HasAccess_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IOperatorLogin" type="tns:IOperatorLogin">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartSession">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/StartSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSessionWeldings">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/StartSessionWeldings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/CloseSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStationStatus">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/GetStationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/GetUserStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasAccess">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/HasAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IOperatorLogin" type="tns:IOperatorLogin">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IOperatorLogin_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartSession">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/StartSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSessionWeldings">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/StartSessionWeldings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/CloseSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStationStatus">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/GetStationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/GetUserStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasAccess">
+      <soap:operation soapAction="http://tempuri.org/IOperatorLogin/HasAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OperatorLogin">
+    <wsdl:port name="BasicHttpBinding_IOperatorLogin" binding="tns:BasicHttpBinding_IOperatorLogin">
+      <soap:address location="http://brnet/WebServices/OperatorLogin.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IOperatorLogin" binding="tns:BasicHttpsBinding_IOperatorLogin">
+      <soap:address location="https://brkir165v.ar.arcelik/WebServices/OperatorLogin.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

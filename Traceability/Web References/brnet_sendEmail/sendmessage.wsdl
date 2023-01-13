@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MessageText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AttachFile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmail_v1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MessageText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AttachFile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="prmMailPriority" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmail_v1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendEmail_v1Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MessageText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmail_v2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MessageText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AttachFile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="prmMailPriority" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmail_v2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendEmail_v2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEmail_v1SoapIn">
+    <wsdl:part name="parameters" element="tns:SendEmail_v1" />
+  </wsdl:message>
+  <wsdl:message name="SendEmail_v1SoapOut">
+    <wsdl:part name="parameters" element="tns:SendEmail_v1Response" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSms" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEmail_v2SoapIn">
+    <wsdl:part name="parameters" element="tns:SendEmail_v2" />
+  </wsdl:message>
+  <wsdl:message name="SendEmail_v2SoapOut">
+    <wsdl:part name="parameters" element="tns:SendEmail_v2Response" />
+  </wsdl:message>
+  <wsdl:portType name="SendMessageSoap">
+    <wsdl:operation name="SendEmail">
+      <wsdl:input message="tns:SendEmailSoapIn" />
+      <wsdl:output message="tns:SendEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail_v1">
+      <wsdl:input message="tns:SendEmail_v1SoapIn" />
+      <wsdl:output message="tns:SendEmail_v1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <wsdl:input message="tns:SendSmsSoapIn" />
+      <wsdl:output message="tns:SendSmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail_v2">
+      <wsdl:input message="tns:SendEmail_v2SoapIn" />
+      <wsdl:output message="tns:SendEmail_v2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SendMessageSoap" type="tns:SendMessageSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendEmail">
+      <soap:operation soapAction="http://tempuri.org/SendEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail_v1">
+      <soap:operation soapAction="http://tempuri.org/SendEmail_v1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap:operation soapAction="http://tempuri.org/SendSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail_v2">
+      <soap:operation soapAction="http://tempuri.org/SendEmail_v2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendMessageSoap12" type="tns:SendMessageSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendEmail">
+      <soap12:operation soapAction="http://tempuri.org/SendEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail_v1">
+      <soap12:operation soapAction="http://tempuri.org/SendEmail_v1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap12:operation soapAction="http://tempuri.org/SendSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail_v2">
+      <soap12:operation soapAction="http://tempuri.org/SendEmail_v2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SendMessage">
+    <wsdl:port name="SendMessageSoap" binding="tns:SendMessageSoap">
+      <soap:address location="http://brnet/ws_sendmessage/sendmessage.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendMessageSoap12" binding="tns:SendMessageSoap12">
+      <soap12:address location="http://brnet/ws_sendmessage/sendmessage.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

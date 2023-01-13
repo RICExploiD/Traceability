@@ -1,0 +1,51 @@
+﻿<Page x:Class="Traceability.IndividualWorkPage.IndividualWorkPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Traceability.Services"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FreezerFan" Loaded="Page_Loaded">
+    <Grid>
+        <Grid Grid.Row="0">
+            <Label Style="{StaticResource WorkLabels}"/>
+            <Viewbox>
+                <TextBox x:Name="gProductAwaitedMaterials"
+                    Style="{StaticResource WorkTextBoxLabels}"
+                   />
+            </Viewbox>
+            <Label Content="Ожидаемый материал(ы): "
+                   Style="{StaticResource WorkTopicLabels}"
+                   />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Label
+                   Style="{StaticResource WorkLabels}"/>
+            <Viewbox>
+                <TextBlock x:Name="gMTKDataLabel" Style="{StaticResource WorkTextLabels}">
+                    <Run x:Name="gComponentMaterialLabel"/>
+                    <Run x:Name="gComponentBarcodeLabel"/>
+                </TextBlock>
+            </Viewbox>
+            <Label Content="Отсканированный компонент: "
+                   Style="{StaticResource WorkTopicLabels}"
+                   />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Label x:Name="gOperatorNotifyBackgroundLabel"
+                   Style="{StaticResource OperatorAttentionLabel}"/>
+            <Viewbox>
+                <Label x:Name="gOperatorNotifyTextLabel"
+                       Content="Ожидайте сканирования"
+                       Style="{StaticResource OperatorWhiteTextLabel}"
+                       />
+            </Viewbox>
+        </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+    </Grid>
+</Page>
